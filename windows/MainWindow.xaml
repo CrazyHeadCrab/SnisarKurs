@@ -43,25 +43,11 @@
                     <RowDefinition Height="4*"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="Вход" Style="{StaticResource Labeltxt}" />
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Вход" Style="{StaticResource txtHeader1}" />
                 <Grid Grid.Row="1" Grid.Column="1" >
                     <Frame x:Name="MainFrame"  />
-                    <!--  <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition />
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="0">
-                        <TextBox  x:Name="loginBox" Margin="20" MinHeight="20" MaxHeight="40" />
-                    </StackPanel>
-                    <StackPanel Grid.Row="1">
-                        <TextBox  x:Name="PasBox" Margin="20" MinHeight="20" MaxHeight="40"/>
-                    </StackPanel>
-                    <StackPanel Grid.Row="2">
-                        <Button x:Name="InBut" Content="Войти" Margin="20"  MinHeight="20" MaxHeight="40"/>
-                    </StackPanel> 
-                    -->
                 </Grid>
+                <TextBlock Text="Регистрация"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="0"/>
             </Grid>
         </Border>
     </Grid>

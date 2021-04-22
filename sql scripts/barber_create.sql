@@ -5,9 +5,9 @@ go
 go
 create database barber
 ON PRIMARY 
-( NAME= SnisarDate,FILENAME= "C:\Users\Public\Videos\barberdate.mdf", SIZE=3 MB, MAXSIZE=100, FILEGROWTH=10) 
+( NAME= SnisarDate,FILENAME= "D:\databases\barberdate.mdf", SIZE=3 MB, MAXSIZE=100, FILEGROWTH=10) 
 LOG ON 
-(NAME=Snisarlog,FILENAME= "C:\Users\Public\Videos\barberslog.mdf", SIZE=3MB, MAXSIZE=100, FILEGROWTH=10) 
+(NAME=Snisarlog,FILENAME= "D:\databases\barberslog.mdf", SIZE=3MB, MAXSIZE=100, FILEGROWTH=10) 
 go
 go
 use barber

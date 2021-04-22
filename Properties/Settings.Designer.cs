@@ -26,7 +26,7 @@ namespace Barber.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-LMQ2AFJ\\SQLEXPRESS;Initial Catalog=barber;Integrated Security" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-GBI8EG20\\SQLEXPRESS;Initial Catalog=barber;Integrated Security" +
             "=True")]
         public string defcon {
             get {
