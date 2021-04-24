@@ -17,13 +17,13 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <TextBox  x:Name="loginBox" Margin="20" MinHeight="20" MaxHeight="40" materialDesign:HintAssist.Hint="Логин"  materialDesign:TextFieldAssist.UnderlineBrush="#FF1889EB" Background="WhiteSmoke"  />
+                <TextBox  x:Name="loginBox" Margin="20" materialDesign:HintAssist.Hint="Логин"  Style="{StaticResource textboxsimple}"  />
             </StackPanel>
             <StackPanel Grid.Row="1">
-                <PasswordBox  x:Name="PasBox" Margin="20" MinHeight="20" MaxHeight="40" materialDesign:HintAssist.Hint="Пароль" Background="WhiteSmoke" materialDesign:TextFieldAssist.UnderlineBrush="#FF1889EB" />
+                <PasswordBox  x:Name="PasBox" Margin="20"  materialDesign:HintAssist.Hint="Пароль"  Style="{StaticResource passboxsimple}" />
             </StackPanel>
             <StackPanel Grid.Row="2">
-                <Button x:Name="InBut" Content="Войти" Margin="20"  MinHeight="20" MaxHeight="40" Click="InBut_Click" Background="WhiteSmoke" materialDesign:BottomDashedLineAdorner.Brush="#FF1889EB" BorderBrush="#FF1889EB" />
+                <Button x:Name="InBut" Content="Войти" Margin="20"  Click="InBut_Click"    Style="{StaticResource  buttonsimple}" />
             </StackPanel>
         </Grid>
     </Grid>
