@@ -13,19 +13,14 @@
     <Style x:Key="textboxsimple" TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
         <Setter Property="ItemsControl.MinHeight" Value="20"/>
         <Setter Property="ItemsControl.MaxHeight" Value="40"/>
-       <!-- <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#FF1889EB"/>-->
         <Setter Property="Background" Value="WhiteSmoke"/>
     </Style>
     <Style x:Key="passboxsimple" TargetType="PasswordBox" BasedOn="{StaticResource MaterialDesignPasswordBox}">
         <Setter Property="ItemsControl.MinHeight" Value="20"/>
         <Setter Property="ItemsControl.MaxHeight" Value="40"/>
-      <!--  <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#FF1889EB"/>-->
         <Setter Property="Background" Value="WhiteSmoke"/>
     </Style>
     <Style x:Key="buttonsimple" TargetType="Button" BasedOn="{StaticResource  MaterialDesignFlatButton}">
-       <!-- <Setter Property="BorderBrush" Value="#FF1889EB"/>
-        <Setter Property="materialDesign:BottomDashedLineAdorner.Brush" Value="#FF1889EB"/>
-        <Setter Property="Foreground" Value="#FF1889EB"/>-->
         <Setter Property="Background" Value="WhiteSmoke"/>
         <Setter Property="ItemsControl.MinHeight" Value="20"/>
         <Setter Property="ItemsControl.MaxHeight" Value="40"/>
@@ -34,5 +29,12 @@
     <Style x:Key="blueborder" >
         <Setter Property="ItemsControl.BorderBrush" Value="#FF10C0B1"/>
         <Setter Property="ItemsControl.BorderThickness" Value="4"/>
+    </Style>
+    <Style x:Key="txtlink">
+        <Setter Property="ItemsControl.Foreground" Value="DeepSkyBlue"/>
+        <Setter Property="ItemsControl.Cursor" Value="Hand"/>
+        <Setter Property="ItemsControl.FontWeight" Value="Bold"/>
+        <Setter Property="ItemsControl.FontStyle"  Value="Italic"/>
+        
     </Style>
 </ResourceDictionary>

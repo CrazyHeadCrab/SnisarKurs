@@ -5,10 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Barber"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        WindowStyle="None"
+        ResizeMode="NoResize"
+
+        Title="MainWindow" Height="550" Width="900">
     <Window.Resources>
     </Window.Resources>
-    <Grid>
+    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
         <Grid.Background>
             <ImageBrush ImageSource="Modern Abstract Shapes Background Blue Color-01.jpg" TileMode="Tile">
                 <ImageBrush.RelativeTransform>
@@ -31,6 +34,10 @@
             <RowDefinition Height="3*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" Orientation="Horizontal">
+            <Button x:Name="butturn" Content="-" Style="{StaticResource MaterialDesignToolForegroundButton}" FontSize="16" Padding="5" Click="butturn_Click"/>
+            <Button x:Name="butclose" Content="x" Style="{StaticResource  MaterialDesignToolForegroundButton}" FontSize="16" Padding="5" Click="butclose_Click"/>
+        </StackPanel>
         <Border Grid.Column="1" Grid.Row="1"   Background="{StaticResource ResourceKey=bl}"  Style="{StaticResource blueborder}">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -43,11 +50,11 @@
                     <RowDefinition Height="4*"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="Вход" Style="{StaticResource txtHeader1}" />
+                <TextBlock x:Name="headerblock" Grid.Row="0" Grid.Column="1" Text="Вход" Style="{StaticResource txtHeader1}" />
                 <Grid Grid.Row="1" Grid.Column="1" >
-                    <Frame x:Name="MainFrame"  />
+                    <Frame x:Name="MainFrame"  NavigationUIVisibility="Hidden" />
                 </Grid>
-                <TextBlock Text="Регистрация"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="0"/>
+                <TextBlock x:Name="txtlink" Text="Регистрация"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="0" Style="{StaticResource txtlink}" FontFamily="Rockwell" FontSize="12" MouseLeftButtonDown="txtlink_MouseLeftButtonUp"/>
             </Grid>
         </Border>
     </Grid>

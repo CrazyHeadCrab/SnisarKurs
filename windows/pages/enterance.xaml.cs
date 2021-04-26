@@ -32,7 +32,7 @@ namespace Barber.windows.pages
 
         private void InBut_Click(object sender, RoutedEventArgs e)
         {
-            string conect = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
+            string conect = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
             using(SqlConnection connection = new SqlConnection(conect))
             {
                 connection.Open();

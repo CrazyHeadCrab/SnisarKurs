@@ -67,6 +67,12 @@
     <Compile Include="windows\pages\enterance.xaml.cs">
       <DependentUpon>enterance.xaml</DependentUpon>
     </Compile>
+    <Compile Include="windows\pages\regist.xaml.cs">
+      <DependentUpon>regist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="windows\pages\test.xaml.cs">
+      <DependentUpon>test.xaml</DependentUpon>
+    </Compile>
     <Page Include="windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -80,6 +86,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="windows\pages\enterance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="windows\pages\regist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="windows\pages\test.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

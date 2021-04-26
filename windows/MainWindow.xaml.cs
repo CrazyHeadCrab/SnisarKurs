@@ -26,5 +26,41 @@ namespace Barber
             MainFrame.Navigate(new Uri("/windows/pages/enterance.xaml",UriKind.RelativeOrAbsolute));
           
         }
+
+        private void Label_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
+        private void butturn_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void butclose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtlink_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (headerblock.Text.Contains("Вход"))
+            {
+                MainFrame.Navigate(new Uri("pack://application:,,,/Barber;component/windows/pages/regist.xaml", UriKind.RelativeOrAbsolute));
+                headerblock.Text = "Регистрация";
+                txtlink.Text = "Вход";
+            }
+            else
+            {
+                MainFrame.Navigate(new Uri("/windows/pages/enterance.xaml", UriKind.RelativeOrAbsolute));
+                headerblock.Text = "Вход";
+                txtlink.Text = "Регистрация";
+            }
+        }
     }
 }

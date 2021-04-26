@@ -47,3 +47,8 @@ C:\Users\maks1\source\repos\CrazyHeadCrab\SnisarKurs\obj\Debug\Barber.csproj.Cor
 C:\Users\maks1\source\repos\CrazyHeadCrab\SnisarKurs\obj\Debug\Barber.csproj.CopyComplete
 C:\Users\maks1\source\repos\CrazyHeadCrab\SnisarKurs\obj\Debug\Barber.exe
 C:\Users\maks1\source\repos\CrazyHeadCrab\SnisarKurs\obj\Debug\Barber.pdb
+C:\Users\maks1\source\repos\CrazyHeadCrab\SnisarKurs\obj\Debug\Barber.csprojAssemblyReference.cache
+C:\Users\maks1\source\repos\CrazyHeadCrab\SnisarKurs\obj\Debug\windows\pages\regist.g.cs
+C:\Users\maks1\source\repos\CrazyHeadCrab\SnisarKurs\obj\Debug\windows\pages\regist.baml
+C:\Users\maks1\source\repos\CrazyHeadCrab\SnisarKurs\obj\Debug\windows\pages\test.g.cs
+C:\Users\maks1\source\repos\CrazyHeadCrab\SnisarKurs\obj\Debug\windows\pages\test.baml
