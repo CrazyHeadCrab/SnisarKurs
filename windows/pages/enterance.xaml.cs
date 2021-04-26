@@ -43,7 +43,25 @@ namespace Barber.windows.pages
                 SqlDataReader sqlData = sqlCommand.ExecuteReader();
                 if (sqlData.Read())
                 {
-                    MessageBox.Show("вход");
+                    switch (sqlData.GetString(3))
+                    {
+                        case "A":
+                            
+                            MessageBox.Show("begin A");
+                            break;
+                        case "B":
+                        
+                            MessageBox.Show("begin B");
+                            break;
+                        case "C":
+                        
+                            MessageBox.Show("begin C");
+                            break;
+                    }
+                }
+                else
+                {
+                    errblock.Visibility = Visibility.Visible;
                 }
 
 

@@ -23,7 +23,8 @@
                 <PasswordBox  x:Name="PasBox" Margin="20"  materialDesign:HintAssist.Hint="Пароль"  Style="{StaticResource passboxsimple}" />
             </StackPanel>
             <StackPanel Grid.Row="2">
-                <Button x:Name="InBut" Content="Войти" Margin="20"  Click="InBut_Click"    Style="{StaticResource  buttonsimple}" />
+                <Button x:Name="InBut" Content="Войти" Margin="20 5"  Click="InBut_Click"    Style="{StaticResource  buttonsimple}" />
+                <TextBlock  x:Name="errblock" Margin="20 5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="DarkRed" Text="Неправильные данные" Visibility="Hidden" />
             </StackPanel>
         </Grid>
     </Grid>
