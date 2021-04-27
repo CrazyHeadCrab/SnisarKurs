@@ -37,4 +37,11 @@
         <Setter Property="ItemsControl.FontStyle"  Value="Italic"/>
         
     </Style>
+    <Style x:Key="txterr">
+        <Setter Property="ItemsControl.Foreground" Value="DarkRed"/>
+        <Setter Property="ItemsControl.Visibility" Value="Hidden"/>
+        <Setter Property="ItemsControl.HorizontalAlignment" Value="Center"/>
+        <Setter Property="ItemsControl.VerticalAlignment" Value="Bottom"/>
+        
+    </Style>
 </ResourceDictionary>

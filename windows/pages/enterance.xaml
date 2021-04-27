@@ -24,7 +24,7 @@
             </StackPanel>
             <StackPanel Grid.Row="2">
                 <Button x:Name="InBut" Content="Войти" Margin="20 5"  Click="InBut_Click"    Style="{StaticResource  buttonsimple}" />
-                <TextBlock  x:Name="errblock" Margin="20 5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="DarkRed" Text="Неправильные данные" Visibility="Hidden" />
+                <TextBlock  x:Name="errblock" Margin="20 5" Style="{StaticResource txterr}"/>
             </StackPanel>
         </Grid>
     </Grid>

@@ -214,3 +214,77 @@ from log_pass
 	
 	 exec dbo.login_cheaks 'wex', '123'
 	go
+
+
+
+if exists (select * from sysobjects where name = 'regist_client' and type='P')
+drop proc regist_client
+go
+create proc regist_client
+@log nvarchar(20),
+@pass nvarchar(20),
+@name nvarchar(20),
+@sur_n nvarchar(20),
+@patr_n nvarchar(20),
+@email nvarchar(30),
+@phone nvarchar(12)
+as
+begin try
+if not(@email like('%@%.%') or @email = 'null')
+begin
+	raiserror('Ќеправильный емаил',16,1)
+end
+
+if  not(@phone like('+7[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]') or @phone = 'null')
+begin
+	raiserror('неправильный номер',16,1)
+end
+
+declare @email2 nvarchar(30)
+declare @phone2 nvarchar(12)
+declare @patr_n2 nvarchar(20)
+
+if (@patr_n = 'null') 
+begin
+	set @patr_n2 = null
+end
+else
+begin 
+	set @patr_n2 = @patr_n
+end
+
+if (@email = 'null') 
+begin
+	set @email2 = null
+end
+else
+begin 
+	set @email2 = @email
+end
+
+if (@phone = 'null') 
+begin
+	set @phone2 = null
+end
+else
+begin 
+	set @phone2 = @phone
+end
+
+begin tran
+insert into log_pass
+	values ((select max(log_pass_id)from log_pass)+1, @log, @pass, 'C')
+insert into client
+	values ((select max(client_id)from client)+1,@name,@sur_n,@patr_n,@email2,@phone2,(select max(log_pass_id)from log_pass))
+commit
+
+end try
+
+begin catch
+declare @errormas nvarchar(50)
+declare @errorsev int
+if  @@TRANCOUNT > 0 ROLLBACK
+select @errormas = ERROR_MESSAGE(), @errorsev = ERROR_SEVERITY()
+RAISERROR(@errormas, @errorsev, 1)
+end catch
+go
