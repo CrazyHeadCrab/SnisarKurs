@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Barber.windows.pages;
 
 namespace Barber
 {
@@ -51,12 +52,17 @@ namespace Barber
         {
             if (headerblock.Text.Contains("Вход"))
             {
-                MainFrame.Navigate(new Uri("pack://application:,,,/Barber;component/windows/pages/regist.xaml", UriKind.RelativeOrAbsolute));
+                MainFrame.Navigate(new Uri("/windows/pages/regist.xaml", UriKind.RelativeOrAbsolute));
+                // MainFrame.Navigate(new Uri("pack://application:,,,/Barber;component/windows/pages/regist.xaml", UriKind.RelativeOrAbsolute));
+                /*regist regist = new regist();
+                regist.regisrate += txtlink_MouseLeftButtonUp;
+                MainFrame.Navigate(regist);*/
                 headerblock.Text = "Регистрация";
                 txtlink.Text = "Вход";
             }
             else
             {
+                
                 MainFrame.Navigate(new Uri("/windows/pages/enterance.xaml", UriKind.RelativeOrAbsolute));
                 headerblock.Text = "Вход";
                 txtlink.Text = "Регистрация";

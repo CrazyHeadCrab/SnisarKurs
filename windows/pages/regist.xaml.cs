@@ -22,9 +22,13 @@ namespace Barber.windows.pages
     /// </summary>
     public partial class regist : Page
     {
+        public delegate void trueregist(object sender, MouseButtonEventArgs e);
+        public event trueregist regisrate;
+
         public regist()
         {
             InitializeComponent();
+
         }
 
         private void regbut_Click(object sender, RoutedEventArgs e)
@@ -35,7 +39,7 @@ namespace Barber.windows.pages
             }
             else
             {
-                string strconection = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
+                string strconection = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
                 using (SqlConnection sqlConnection = new SqlConnection(strconection))
                 {
                     sqlConnection.Open();
@@ -45,6 +49,7 @@ namespace Barber.windows.pages
                     sqlCommand.Parameters.AddWithValue("@pas", PasBox.Password);
                     sqlCommand.Parameters.AddWithValue("@name", nameBox.Text);
                     sqlCommand.Parameters.AddWithValue("@sur", surnameBox.Text);
+                    
                     if (patroname.Text.Length > 0) 
                         sqlCommand.Parameters.AddWithValue("@patr", patroname.Text);
                     else
@@ -59,12 +64,18 @@ namespace Barber.windows.pages
                         sqlCommand.Parameters.AddWithValue("@phone", "null");
                     SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
                     if (sqlCommand.ExecuteNonQuery() == 2)
+                    {
                         MessageBox.Show("ok");
+                        regisrate.Invoke(this, null);
+                    }
+                        
                     else MessageBox.Show("not ok");
 
                 }
             }
         }
+
+       
 
         private bool cheak_input_date()
         {
