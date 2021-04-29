@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Barber.windows.pages;
+using Barber.windows;
 
 namespace Barber
 {
@@ -21,11 +22,16 @@ namespace Barber
     /// </summary>
     public partial class MainWindow : Window
     {
+        regist registpg;
+        enterance enterancepg;
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new Uri("/windows/pages/enterance.xaml",UriKind.RelativeOrAbsolute));
-          
+            enterancepg = new enterance();
+            enterancepg.beentranceevent += enterencebe;
+            MainFrame.Navigate(enterancepg);
+
+
         }
 
         private void Label_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -52,21 +58,28 @@ namespace Barber
         {
             if (headerblock.Text.Contains("Вход"))
             {
-                MainFrame.Navigate(new Uri("/windows/pages/regist.xaml", UriKind.RelativeOrAbsolute));
-                // MainFrame.Navigate(new Uri("pack://application:,,,/Barber;component/windows/pages/regist.xaml", UriKind.RelativeOrAbsolute));
-                /*regist regist = new regist();
-                regist.regisrate += txtlink_MouseLeftButtonUp;
-                MainFrame.Navigate(regist);*/
+                if (registpg == null)
+                {
+                    registpg = new regist();
+                    registpg.regisrate += txtlink_MouseLeftButtonUp;
+                }
+                MainFrame.Navigate(registpg);
                 headerblock.Text = "Регистрация";
                 txtlink.Text = "Вход";
             }
             else
             {
-                
-                MainFrame.Navigate(new Uri("/windows/pages/enterance.xaml", UriKind.RelativeOrAbsolute));
+                MainFrame.Navigate(enterancepg);
                 headerblock.Text = "Вход";
                 txtlink.Text = "Регистрация";
             }
+        }
+
+        private void enterencebe(int id, char income_lvl)
+        {
+            Mainmenu mainmenu = new Mainmenu(id, income_lvl);
+            mainmenu.Show();
+            this.Close();
         }
     }
 }

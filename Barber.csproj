@@ -64,12 +64,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="windows\Mainmenu.xaml.cs">
+      <DependentUpon>Mainmenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="windows\pages\enterance.xaml.cs">
       <DependentUpon>enterance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="windows\pages\Client\MainMenuClient.xaml.cs">
+      <DependentUpon>MainMenuClient.xaml</DependentUpon>
     </Compile>
     <Compile Include="windows\pages\regist.xaml.cs">
       <DependentUpon>regist.xaml</DependentUpon>
     </Compile>
+    <Page Include="windows\Mainmenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -83,6 +93,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="windows\pages\enterance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="windows\pages\Client\MainMenuClient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -125,15 +139,7 @@
   <ItemGroup>
     <Folder Include="class\" />
     <Folder Include="code\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="windows\pole.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="windows\polebek.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="windows\pngtree.png" />
+    <Folder Include="windows\pages\employer\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="windows\Modern Abstract Shapes Background Blue Color-01.jpg" />

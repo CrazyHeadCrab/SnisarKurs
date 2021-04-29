@@ -1,0 +1,19 @@
+﻿<Page x:Class="Barber.windows.pages.MainMenuClient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Barber.windows.pages"
+      mc:Ignorable="d" d:DesignWidth="294.175"
+      Title="MainMenuClient" Height="404.855">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="20 10" >
+            <TextBlock x:Name="header" Style="{StaticResource txtHeader2}" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+            <Button x:Name="butreservation" Content="Забронировать" Margin="0 20" Click="butreservation_Click" />
+            <Button Content="История" Margin="0 20"/>
+            <Button Content="Книга жалоб и пожеланий" Margin="0 20"/>
+            <Button Content="Выход" Margin="0 20"/>
+        </StackPanel>
+    </Grid>
+</Page>

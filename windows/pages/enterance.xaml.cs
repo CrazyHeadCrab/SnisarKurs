@@ -24,6 +24,8 @@ namespace Barber.windows.pages
     /// </summary>
     public partial class enterance : Page
     {
+        public delegate void beentrance(int id, char income_lvl);
+        public event beentrance beentranceevent;
         public enterance()
         {
             InitializeComponent();
@@ -56,6 +58,7 @@ namespace Barber.windows.pages
                         case "C":
                         
                             MessageBox.Show("begin C");
+                            beentranceevent(sqlData.GetInt32(2), 'C');
                             break;
                     }
                 }
