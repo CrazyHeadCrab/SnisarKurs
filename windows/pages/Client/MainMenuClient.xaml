@@ -11,9 +11,9 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="20 10" >
             <TextBlock x:Name="header" Style="{StaticResource txtHeader2}" TextWrapping="Wrap" HorizontalAlignment="Center"/>
             <Button x:Name="butreservation" Content="Забронировать" Margin="0 20" Click="butreservation_Click" />
-            <Button Content="История" Margin="0 20"/>
-            <Button Content="Книга жалоб и пожеланий" Margin="0 20"/>
-            <Button Content="Выход" Margin="0 20"/>
+            <Button x:Name="buthistory" Content="История" Margin="0 20" Click="buthistory_Click"/>
+            <Button x:Name="butfeedback" Content="Книга жалоб и пожеланий" Margin="0 20" Click="butfeedback_Click"/>
+            <Button x:Name="butexit" Content="Выход" Margin="0 20" Click="butexit_Click"/>
         </StackPanel>
     </Grid>
 </Page>

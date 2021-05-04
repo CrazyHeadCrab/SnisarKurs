@@ -23,9 +23,42 @@ namespace Barber.windows
         public Mainmenu(int id, char income_lvl)
         {
             InitializeComponent();
-            MainMenuClient menu = new MainMenuClient(id);
-            menu.income_lvl = income_lvl;
-            Mainframe.Navigate(menu);
+            switch (income_lvl)
+            {
+                case 'A': break;
+                case 'B': break;
+                case 'C':
+                    MainMenuClient menu = new MainMenuClient(id);
+                    menu.income_lvl = income_lvl;
+                    menu.servation_client_page += servation_client_page;
+                    menu.history_client_page += history_client_page;
+                    menu.feedback_client_page += feedback_client_page;
+                    menu.exit_client_page += exit_client_page;
+                    Mainframe.Navigate(menu);
+                    break;
+            }
+
+
+        }
+
+        private void exit_client_page()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void feedback_client_page()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void history_client_page()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void servation_client_page()
+        {
+            throw new NotImplementedException();
         }
     }
 }

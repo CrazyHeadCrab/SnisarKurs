@@ -56,3 +56,7 @@ C:\Users\maks1\source\repos\CrazyHeadCrab\SnisarKurs\obj\Debug\windows\Mainmenu.
 C:\Users\maks1\source\repos\CrazyHeadCrab\SnisarKurs\obj\Debug\windows\pages\MainMenuClient.g.cs
 C:\Users\maks1\source\repos\CrazyHeadCrab\SnisarKurs\obj\Debug\windows\Mainmenu.baml
 C:\Users\maks1\source\repos\CrazyHeadCrab\SnisarKurs\obj\Debug\windows\pages\MainMenuClient.baml
+C:\Users\user\source\repos\Barber\obj\Debug\windows\Mainmenu.g.cs
+C:\Users\user\source\repos\Barber\obj\Debug\windows\pages\Client\MainMenuClient.g.cs
+C:\Users\user\source\repos\Barber\obj\Debug\windows\Mainmenu.baml
+C:\Users\user\source\repos\Barber\obj\Debug\windows\pages\Client\MainMenuClient.baml

@@ -26,18 +26,22 @@ namespace Barber.windows.pages
         public int ID;
         public char income_lvl = 'C';
 
-        public delegate void Change_client_page(Page page);
+        public delegate void Change_client_page();
         public event Change_client_page servation_client_page;
+        public event Change_client_page history_client_page;
+        public event Change_client_page feedback_client_page;
+        public event Change_client_page exit_client_page;
         public MainMenuClient(int id)
         {
             InitializeComponent();
             ID = id;
             Headername();
+
         }
 
         private void Headername()
         {
-            string strcon = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
             using (SqlConnection sqlcon = new SqlConnection(strcon))
             {
                 sqlcon.Open();
@@ -56,7 +60,22 @@ namespace Barber.windows.pages
 
         private void butreservation_Click(object sender, RoutedEventArgs e)
         {
+            servation_client_page();
+        }
 
+        private void buthistory_Click(object sender, RoutedEventArgs e)
+        {
+            history_client_page();
+        }
+
+        private void butfeedback_Click(object sender, RoutedEventArgs e)
+        {
+            feedback_client_page();
+        }
+
+        private void butexit_Click(object sender, RoutedEventArgs e)
+        {
+            exit_client_page();
         }
     }
 }
