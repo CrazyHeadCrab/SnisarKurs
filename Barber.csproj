@@ -64,8 +64,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Code\bookingtime.cs" />
+    <Compile Include="Code\branch.cs" />
+    <Compile Include="Code\emplo.cs" />
+    <Compile Include="Code\record.cs" />
+    <Compile Include="Code\service.cs" />
     <Compile Include="windows\Mainmenu.xaml.cs">
       <DependentUpon>Mainmenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="windows\pages\Client\ClientAcc.xaml.cs">
+      <DependentUpon>ClientAcc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="windows\pages\Client\ServationClient.xaml.cs">
+      <DependentUpon>ServationClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="windows\pages\Client\ServationClientPartTwo.xaml.cs">
+      <DependentUpon>ServationClientPartTwo.xaml</DependentUpon>
     </Compile>
     <Compile Include="windows\pages\enterance.xaml.cs">
       <DependentUpon>enterance.xaml</DependentUpon>
@@ -92,6 +106,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="windows\pages\Client\ClientAcc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="windows\pages\Client\ServationClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="windows\pages\Client\ServationClientPartTwo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="windows\pages\enterance.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,8 +163,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="class\" />
-    <Folder Include="code\" />
     <Folder Include="windows\pages\employer\" />
   </ItemGroup>
   <ItemGroup>

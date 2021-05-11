@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Configuration;
 using System.Data.SqlClient;
+using Barber.windows.pages.Client;
 
 namespace Barber.windows.pages
 {
@@ -23,17 +24,20 @@ namespace Barber.windows.pages
     
     public partial class MainMenuClient : Page
     {
-        public int ID;
-        public char income_lvl = 'C';
+        private int ID;
+        private char income_lvl = 'C';
+        private Frame mainframe;
 
         public delegate void Change_client_page();
         public event Change_client_page servation_client_page;
         public event Change_client_page history_client_page;
         public event Change_client_page feedback_client_page;
         public event Change_client_page exit_client_page;
-        public MainMenuClient(int id)
+
+        public MainMenuClient(int id, Frame frame)
         {
             InitializeComponent();
+            mainframe = frame;
             ID = id;
             Headername();
 
@@ -41,7 +45,7 @@ namespace Barber.windows.pages
 
         private void Headername()
         {
-            string strcon = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
             using (SqlConnection sqlcon = new SqlConnection(strcon))
             {
                 sqlcon.Open();
@@ -60,12 +64,14 @@ namespace Barber.windows.pages
 
         private void butreservation_Click(object sender, RoutedEventArgs e)
         {
-            servation_client_page();
+            ServationClient servationclient = new ServationClient(mainframe, ID);
+            mainframe.Navigate(servationclient);
         }
 
-        private void buthistory_Click(object sender, RoutedEventArgs e)
+        private void butacc_Click(object sender, RoutedEventArgs e)
         {
-            history_client_page();
+            ClientAcc clientAcc = new ClientAcc(mainframe, ID);
+            mainframe.Navigate(clientAcc);
         }
 
         private void butfeedback_Click(object sender, RoutedEventArgs e)

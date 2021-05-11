@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Barber.windows.pages;
+using Barber.Code;
+using System.Collections;
+using Barber.windows.pages.Client;
 
 namespace Barber.windows
 {
@@ -28,37 +31,32 @@ namespace Barber.windows
                 case 'A': break;
                 case 'B': break;
                 case 'C':
-                    MainMenuClient menu = new MainMenuClient(id);
-                    menu.income_lvl = income_lvl;
-                    menu.servation_client_page += servation_client_page;
-                    menu.history_client_page += history_client_page;
-                    menu.feedback_client_page += feedback_client_page;
-                    menu.exit_client_page += exit_client_page;
+                    MainMenuClient menu = new MainMenuClient(id, Mainframe);
+                   // menu.income_lvl = income_lvl;
+                  
                     Mainframe.Navigate(menu);
+
                     break;
             }
 
 
         }
 
-        private void exit_client_page()
+      
+        private void butturn_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            this.WindowState = WindowState.Minimized;
         }
 
-        private void feedback_client_page()
+        private void butclose_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            this.Close();
         }
-
-        private void history_client_page()
+        /*private void uni_butback(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            IEnumerable<Page> his = (IEnumerable<Page>)Mainframe.BackStack;
+            Mainframe.Navigate(his.First());
         }
-
-        private void servation_client_page()
-        {
-            throw new NotImplementedException();
-        }
+        */
     }
 }

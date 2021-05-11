@@ -8,11 +8,10 @@
       Title="MainMenuClient" Height="404.855">
 
     <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="20 10" >
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="20 10" Width="500" >
             <TextBlock x:Name="header" Style="{StaticResource txtHeader2}" TextWrapping="Wrap" HorizontalAlignment="Center"/>
-            <Button x:Name="butreservation" Content="Забронировать" Margin="0 20" Click="butreservation_Click" />
-            <Button x:Name="buthistory" Content="История" Margin="0 20" Click="buthistory_Click"/>
-            <Button x:Name="butfeedback" Content="Книга жалоб и пожеланий" Margin="0 20" Click="butfeedback_Click"/>
+            <Button x:Name="butreservation" Content="Забронировать" Margin="0 20" Click="butreservation_Click"  />
+            <Button x:Name="buthistory" Content="Аккаунт" Margin="0 20" Click="butacc_Click"/>
             <Button x:Name="butexit" Content="Выход" Margin="0 20" Click="butexit_Click"/>
         </StackPanel>
     </Grid>

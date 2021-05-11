@@ -1,0 +1,86 @@
+﻿<Page x:Class="Barber.windows.pages.Client.ServationClientPartTwo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Barber.windows.pages.Client"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ServationClientPartTwo">
+
+    <Grid x:Name="maingrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Услуга" Style="{StaticResource txtHeader1}" Grid.Column="0" Grid.Row="0" />
+        <TextBlock Text="Сотрудник" Style="{StaticResource txtHeader1}" Grid.Column="1" Grid.Row="0" />
+        <TextBlock Text="Дата и время" Style="{StaticResource txtHeader1}" Grid.Column="2" Grid.Row="0" />
+        <ListBox x:Name="listservices" Grid.Row="1" Grid.Column="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="listservices_Selected" >
+            <ListBox.ItemTemplate >
+                <DataTemplate  >
+                    <Border   BorderBrush="AliceBlue" Height="100" >
+                        <TextBlock Text="{Binding Path=name}" Margin="5" Style="{StaticResource txtHeader3}"/>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            
+        </ListBox>
+        <ListBox x:Name="listemplo" Grid.Row="1" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Visibility="Hidden" SelectionChanged="listemplo_SelectionChanged" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border   BorderBrush="Black" Height="100" Width="200">
+                        <TextBlock Text="{Binding Path=name}" Margin="5" Style="{StaticResource txtHeader2}"/>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Calendar x:Name="calendar" Grid.Row="1" Grid.Column="2" Margin="10"  Visibility="Hidden" />
+        <Button x:Name="butback" Content="Назад" Style="{StaticResource buttonsimple}" Grid.Column="0" Grid.Row="2" Click="butback_Click"  />
+        <Button x:Name="butnext" Content="Забронировать" Style="{StaticResource buttonsimple}" Grid.Column="2" Grid.Row="2" Click="butnext_Click" IsEnabled="False"/>
+        <Popup x:Name="timepup" StaysOpen="False" Placement="MousePoint"   Width="200" Height="100" >
+            <Grid Background="White" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="butpopclose" Content="x" Style="{StaticResource  MaterialDesignToolForegroundButton}" FontSize="10" HorizontalAlignment="Right"  VerticalAlignment="top" Margin="0" Padding="0" Height="13" Width="6" Click="butpopclose_Click" />
+                <TextBlock Text="Выберите время" Style="{StaticResource txtnormal}" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black"/>
+                <ListBox x:Name="listtime"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1"  SelectionChanged="listtime_SelectionChanged" >
+                    <ListBox.ItemTemplate >
+                        <DataTemplate >
+                            <TextBlock Text="{Binding Path=time}" Margin="5" Style="{StaticResource txtnormal}" Foreground="Black"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemsPanel >
+                        <ItemsPanelTemplate >
+                            <WrapPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </Grid>
+            
+        </Popup>
+        <Popup x:Name="endpup" StaysOpen="True" Placement="Center" Focusable="True"   Width="350" Height="150" >
+            <Border  BorderThickness="3" Background="White" BorderBrush="{StaticResource PrimaryHueDarkBrush}" >
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Ваш Заказ" Style="{StaticResource txtHeader3}" Foreground="{StaticResource PrimaryHueLightBrush}"/>
+                    <TextBlock x:Name="endpupadd" Style="{StaticResource txtnormal}"  Foreground="Black"  HorizontalAlignment="Left" TextWrapping="Wrap"/>
+                    <TextBlock x:Name="endpupserv" Style="{StaticResource txtnormal}" Foreground="Black" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="endpupempl" Style="{StaticResource txtnormal}" Foreground="Black" HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="endpupdata" Style="{StaticResource txtnormal}" Foreground="Black" HorizontalAlignment="Left"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="endpupexit" Content="Отмена" HorizontalAlignment="Left" Width="175" Click="endpupexit_Click"/>
+                        <Button x:Name="endpuptrue" Content="Подтвердить" HorizontalAlignment="Right" Width="175" Click="endpuptrue_Click"/>
+                    </StackPanel> 
+                </StackPanel>
+            </Border>
+        </Popup>
+    </Grid>
+</Page>

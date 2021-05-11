@@ -26,22 +26,11 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" Orientation="Horizontal">
-            <Button x:Name="butturn" Content="-" Style="{StaticResource MaterialDesignToolForegroundButton}" FontSize="16" Padding="5"/>
-            <Button x:Name="butclose" Content="x" Style="{StaticResource  MaterialDesignToolForegroundButton}" FontSize="16" Padding="5"/>
+            <Button x:Name="butturn" Content="-" Style="{StaticResource MaterialDesignToolForegroundButton}" FontSize="16" Padding="5" Click="butturn_Click"/>
+            <Button x:Name="butclose" Content="x" Style="{StaticResource  MaterialDesignToolForegroundButton}" FontSize="16" Padding="5" Click="butclose_Click"/>
         </StackPanel>
         <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource blueborder}" Background="{StaticResource bl}">
-            <Frame x:Name="Mainframe"/>
-
-
-            <!--  <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="20 10" >
-                <TextBlock Text="Задраствуйте" Style="{StaticResource txtHeader2}"/>
-                <Button Content="Забронировать" Margin="0 20" Style="{StaticResource  MaterialDesignFlatLightBgButton}"/>
-                <Button Content="История" Margin="0 20"/>
-                <Button Content="Книга жалоб и пожеланий" Margin="0 20"/>
-                <Button Content="Выход" Margin="0 20"/>
-                
-            </StackPanel>
-            -->
+            <Frame x:Name="Mainframe" NavigationUIVisibility="Hidden"/>
         </Border>
     </Grid>
 </Window>

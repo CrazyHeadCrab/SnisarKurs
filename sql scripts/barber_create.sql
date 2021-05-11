@@ -17,7 +17,7 @@ create table log_pass
 log_pass_id int not null,
 logn nvarchar(20) not null Unique,
 pass nvarchar(20) not null,
-income_lvl char(1) not null check (income_lvl like ('[ABC]')),
+income_lvl varchar(1) not null check (income_lvl like ('[ABC]')),
 primary key(log_pass_id)
 )
 
@@ -25,11 +25,11 @@ primary key(log_pass_id)
 create table client
 (
 client_id int not null ,
-cl_name nchar(20) not null,
-cl_surname nchar(20) not null,
-cl_patronic nchar(20) null,
-cl_email char(30)  null check (cl_email like('%@%.%')),
-cl_phone char(12)  null check (cl_phone like('+7[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')),
+cl_name nvarchar(20) not null,
+cl_surname nvarchar(20) not null,
+cl_patronic nvarchar(20) null,
+cl_email varchar(30)  null check (cl_email like('%@%.%')),
+cl_phone varchar(12)  null check (cl_phone like('+7[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')),
 log_pass_id int not null,
 primary key(client_id),
 foreign key (log_pass_id) references log_pass(log_pass_id)
@@ -37,33 +37,35 @@ foreign key (log_pass_id) references log_pass(log_pass_id)
 create table town
 (
 town_id int not null ,
-town_name nchar(30) not null,
+town_name nvarchar(30) not null,
 primary key (town_id)
 )
 create table branch
 (
 branch_id int not null ,
 town_id int not null,
-br_address nchar(80) null,
+br_name nvarchar (40) null,
+br_address nvarchar(80) null,
 primary key (branch_id),
 foreign key(town_id) references town(town_id)
 )
 create table post
 (
 post_id int not null ,
-post_name nchar(50) not null,
+post_name nvarchar(50) not null,
 salary money not null,
 primary key (post_id)
 )
 create table employer
 (
 employer_id int not null ,
-emp_name nchar(20) not null,
-emp_surname nchar(20) not null,
-emp_patronic nchar(20) null,
+emp_name nvarchar(20) not null,
+emp_surname nvarchar(20) not null,
+emp_patronic nvarchar(20) null,
 branch_id int not null,
 post_id int not null,
 log_pass_id int not null,
+count_stars int not null check (count_stars >= 1 and count_stars <=5) DEFAULT 4,
 
 primary key (employer_id),
 foreign key (branch_id) references branch(branch_id),
@@ -73,7 +75,7 @@ foreign key (log_pass_id) references log_pass(log_pass_id)
 create table srvice
 (
 srvice_id int not null ,
-srvice_name nchar(50) not null,
+srvice_name nvarchar(50) not null,
 srvice_cost money not null,
 srvice_duration int null,
 primary key (srvice_id)
@@ -119,7 +121,28 @@ create table times
 val time not null,
 primary key (val)
 )
+create table review
+(
+review_id int not null ,
+record_id int not null ,
+count_stars int not null check (count_stars >= 1 and count_stars <=5),
+review nvarchar(500) null,
+primary key(review_id),
+foreign key (record_id) references record(record_id)
+)
 go
+
+
+create trigger update_count_stars 
+on review
+for insert, update
+as 
+declare @emp_id int
+set @emp_id = (select employer_id from inserted inner join record on record.record_id =inserted.record_id)
+update employer
+set count_stars = (select ((sum(count_stars)+4)/(count(count_stars)+1)) from review inner join record on record.record_id =review.record_id where record.employer_id = @emp_id )
+where employer_id = @emp_id
+
 go
 use barber
 
@@ -193,7 +216,7 @@ insert into post
 			(5,'Мастер ногтевого Сервиса',25000),
 			(6,'Менеджер',100000)
 
-insert into employer
+insert into employer(employer_id,emp_name,emp_surname,emp_patronic,branch_id,post_id,log_pass_id)
 	values  (1,'Ярослав','Фуфаев','Станиславович',1,1,1),
 			(2,'Аким','Акимов','Акимович',1,2,2),
 			(3,'Василий','Пронин','Вадимович',2,3,3),

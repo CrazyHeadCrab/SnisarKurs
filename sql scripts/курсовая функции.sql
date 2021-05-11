@@ -25,7 +25,7 @@ create function free_emp_time(@employer_id int, @date date,@time time )
 returns int 
 begin
 declare @free_emp_time int
-if(exists(select record.record_date  from record where record.record_date = @date))
+if(exists(select record.record_date  from record where record.record_date = @date and @employer_id=employer_id))
 begin
 	if (exists (
 	select  record.employer_id
@@ -59,7 +59,7 @@ return @free_emp_time
 end 
 go
 go
-select dbo.free_emp_time(1,'2021-04-22','18:53:00')
+select dbo.free_emp_time(1,'2021-02-22','18:53:00')
 go
 
 IF EXISTS (SELECT name FROM sysobjects WHERE name = 'free_emp_time_date' AND type = 'P')
@@ -102,7 +102,7 @@ go
 
  
 
-
+all_branch_srvice(1)
 
 
 IF EXISTS (SELECT name FROM sysobjects WHERE name = 'order_creation' AND type = 'P')
@@ -204,7 +204,7 @@ create proc login_cheaks
 @log nvarchar(20),
 @pass nvarchar(20)
 as
-select log_pass.log_pass_id, employer_id, client_id
+select log_pass.log_pass_id, employer_id, client_id, income_lvl
 from log_pass 
 	left join employer on log_pass.log_pass_id=employer.log_pass_id
 	left join client on log_pass.log_pass_id=client.log_pass_id
@@ -288,3 +288,73 @@ select @errormas = ERROR_MESSAGE(), @errorsev = ERROR_SEVERITY()
 RAISERROR(@errormas, @errorsev, 1)
 end catch
 go
+
+
+
+if exists (select * from sysobjects where name = 'all_srvice_post' and type='FN')
+drop function all_srvice_post
+go
+create function all_srvice_post(@srvice_id int)
+returns table
+As 
+return
+select post_srvice.post_id 
+from post_srvice
+	inner join srvice on srvice.srvice_id = post_srvice.srvice_id
+where srvice.srvice_id = @srvice_id
+go
+
+
+select post_srvice.post_id 
+from post_srvice
+	inner join srvice on srvice.srvice_id = post_srvice.srvice_id
+where srvice.srvice_id = 1
+
+ 
+ select srvice.srvice_id, srvice_name, srvice_cost from srvice inner join dbo.all_branch_srvice(1) on all_branch_srvice.srvice_id = srvice.srvice_id 
+
+
+ select employer_id, emp_name, emp_surname, emp_patronic, post_name, employer.post_id from employer inner join branch on branch.branch_id = employer.branch_id inner join dbo.all_srvice_post(1) on employer.post_id = all_srvice_post.post_id inner join post on post.post_id = employer.post_id where employer.branch_id =1
+
+
+
+
+
+
+
+ 
+select times.val from times where dbo.free_emp_time(7,'2021-5-7',times.val) != 0
+
+select dbo.free_emp_time(7,'2021-5-21','10:00:00')
+select times.val from times where dbo.free_emp_time(8,'2021-5-20',times.val) != 0
+select dbo.free_emp_time(3,'2021-5-10','10:00:00')
+go
+
+/*
+create trigger update_count_stars 
+on record
+for insert, update
+as
+*/
+
+
+if exists (select * from sysobjects where name = 'all_client_record' and type='FN')
+drop function all_client_record
+go
+create function all_client_record(@client_id int)
+returns table
+As 
+return
+SELECT        dbo.record.record_id, dbo.record.employer_id, dbo.record.client_id, dbo.record.branch_id, dbo.record.srvice_id, dbo.record.start_time, dbo.record.record_date, dbo.srvice.srvice_name, dbo.srvice.srvice_cost, 
+                         dbo.branch.branch_id AS Expr1, dbo.branch.br_address, dbo.employer.emp_name, dbo.employer.emp_surname, dbo.post.post_name
+FROM            dbo.record INNER JOIN
+                         dbo.branch ON dbo.record.branch_id = dbo.branch.branch_id INNER JOIN
+                         dbo.town ON dbo.branch.town_id = dbo.town.town_id INNER JOIN
+                         dbo.employer ON dbo.record.employer_id = dbo.employer.employer_id AND dbo.branch.branch_id = dbo.employer.branch_id INNER JOIN
+                         dbo.srvice ON dbo.record.srvice_id = dbo.srvice.srvice_id INNER JOIN
+                         dbo.post ON dbo.employer.post_id = dbo.post.post_id
+						 where dbo.record.client_id = @client_id
+go
+
+
+						 select * from  all_client_record(1) 
