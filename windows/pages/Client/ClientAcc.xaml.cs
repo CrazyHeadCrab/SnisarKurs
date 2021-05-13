@@ -56,5 +56,22 @@ namespace Barber.windows.pages.Client
                 mainframe.RemoveBackEntry();
             }
         }
+
+        private void reviewbut_Click(object sender, RoutedEventArgs e)
+        {
+            record rec = (record)listhisserv.Items[listhisserv.Items.IndexOf(((Button)sender).DataContext)];
+            Reviewpop.IsOpen = true;
+            numpop.Text = rec.id.ToString();
+        }
+
+        private void accbut_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveChangeBut_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -45,7 +45,7 @@ namespace Barber.windows.pages
 
         private void Headername()
         {
-            string strcon = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
             using (SqlConnection sqlcon = new SqlConnection(strcon))
             {
                 sqlcon.Open();
@@ -74,10 +74,6 @@ namespace Barber.windows.pages
             mainframe.Navigate(clientAcc);
         }
 
-        private void butfeedback_Click(object sender, RoutedEventArgs e)
-        {
-            feedback_client_page();
-        }
 
         private void butexit_Click(object sender, RoutedEventArgs e)
         {

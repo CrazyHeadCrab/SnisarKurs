@@ -19,11 +19,11 @@ namespace Barber.Code
         public static List<branch> branchpush()
         {
             List<branch> branches = new List<branch>();
-            string strcon = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
             using (SqlConnection con = new SqlConnection(strcon))
             {
                 con.Open();
-                string cmd = "select branch_id, br_address, town_name from branch inner join town on branch.town_id = town.town_id";
+                string cmd = "select branch_id, br_address, town_name, br_name from branch inner join town on branch.town_id = town.town_id";
                 SqlCommand sqlCommand = new SqlCommand(cmd, con);
                 SqlDataReader data = sqlCommand.ExecuteReader();
                 while (data.Read())
@@ -32,7 +32,7 @@ namespace Barber.Code
                     branch.id = data.GetInt32(0);
                     branch.addres = data.GetString(1);
                     branch.town = data.GetString(2);
-                    branch.name = "XXX";
+                    branch.name = data.GetString(3);
                     branches.Add(branch);
                 }
                 con.Close();

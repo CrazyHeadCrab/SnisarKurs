@@ -20,7 +20,7 @@ namespace Barber.Code
         public static ObservableCollection<service> servicepush( int branch_id)
         {
             ObservableCollection<service> services = new ObservableCollection<service>();
-            string strcon = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
             using (SqlConnection con = new SqlConnection(strcon))
             {
                 con.Open();

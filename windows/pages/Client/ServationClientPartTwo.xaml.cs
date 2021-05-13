@@ -119,7 +119,7 @@ namespace Barber.windows.pages.Client
         private void endpuptrue_Click(object sender, RoutedEventArgs e)
         {
             string d = ((bookingtime)listtime.SelectedItem).date.Year.ToString() + "-" + ((bookingtime)listtime.SelectedItem).date.Month.ToString() + "-" + ((bookingtime)listtime.SelectedItem).date.Day.ToString();
-                string strcon = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
+                string strcon = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(strcon))
                 {
                     con.Open();
