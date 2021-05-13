@@ -47,5 +47,14 @@ namespace Barber.windows.pages.Client
 
 
         }
+
+        private void exitbut_Click(object sender, RoutedEventArgs e)
+        {
+            if (mainframe.CanGoBack)
+            {
+                mainframe.GoBack();
+                mainframe.RemoveBackEntry();
+            }
+        }
     }
 }

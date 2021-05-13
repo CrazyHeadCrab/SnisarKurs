@@ -44,8 +44,8 @@ create table branch
 (
 branch_id int not null ,
 town_id int not null,
-br_name nvarchar (40) null,
 br_address nvarchar(80) null,
+br_name nvarchar (40) null,
 primary key (branch_id),
 foreign key(town_id) references town(town_id)
 )
@@ -197,7 +197,7 @@ insert into town
 			(4,'Новгород'),
 			(5,'Новосибирск')
 
-insert into branch
+insert into branch(branch_id ,town_id ,br_address )
 	values  (1,1,'ул. Кутузова, дом 15'),
 			(2,1,'ул. Серпова, дом 3'),
 			(3,2,'ул. Квадратная, дом 9'),

@@ -66,3 +66,9 @@ C:\Users\maks1\source\repos\CrazyHeadCrab\SnisarKurs\obj\Debug\windows\pages\Cli
 C:\Users\maks1\source\repos\CrazyHeadCrab\SnisarKurs\obj\Debug\windows\pages\Client\ServationClientPartTwo.baml
 C:\Users\maks1\source\repos\CrazyHeadCrab\SnisarKurs\obj\Debug\windows\pages\Client\ClientAcc.g.cs
 C:\Users\maks1\source\repos\CrazyHeadCrab\SnisarKurs\obj\Debug\windows\pages\Client\ClientAcc.baml
+C:\Users\user\source\repos\Barber\obj\Debug\windows\pages\Client\ClientAcc.g.cs
+C:\Users\user\source\repos\Barber\obj\Debug\windows\pages\Client\ServationClient.g.cs
+C:\Users\user\source\repos\Barber\obj\Debug\windows\pages\Client\ServationClientPartTwo.g.cs
+C:\Users\user\source\repos\Barber\obj\Debug\windows\pages\Client\ClientAcc.baml
+C:\Users\user\source\repos\Barber\obj\Debug\windows\pages\Client\ServationClient.baml
+C:\Users\user\source\repos\Barber\obj\Debug\windows\pages\Client\ServationClientPartTwo.baml

@@ -346,9 +346,9 @@ returns table
 As 
 return
 SELECT        dbo.record.record_id, dbo.record.employer_id, dbo.record.client_id, dbo.record.branch_id, dbo.record.srvice_id, dbo.record.start_time, dbo.record.record_date, dbo.srvice.srvice_name, dbo.srvice.srvice_cost, 
-                         dbo.branch.branch_id AS Expr1, dbo.branch.br_address, dbo.employer.emp_name, dbo.employer.emp_surname, dbo.post.post_name
+                         dbo.branch.branch_id AS Expr1, dbo.branch.br_address, dbo.employer.emp_name, dbo.employer.emp_surname, dbo.post.post_name, town_name
 FROM            dbo.record INNER JOIN
-                         dbo.branch ON dbo.record.branch_id = dbo.branch.branch_id INNER JOIN
+                         dbo.branch   ON dbo.record.branch_id = dbo.branch.branch_id INNER JOIN
                          dbo.town ON dbo.branch.town_id = dbo.town.town_id INNER JOIN
                          dbo.employer ON dbo.record.employer_id = dbo.employer.employer_id AND dbo.branch.branch_id = dbo.employer.branch_id INNER JOIN
                          dbo.srvice ON dbo.record.srvice_id = dbo.srvice.srvice_id INNER JOIN

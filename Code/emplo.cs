@@ -23,7 +23,7 @@ namespace Barber.Code
         public static List<emplo> emplopush( int branch_id, int service_id)
         {
             List<emplo> emplos = new List<emplo>();
-            string strcon = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
             using (SqlConnection con = new SqlConnection(strcon))
             {
                 con.Open();

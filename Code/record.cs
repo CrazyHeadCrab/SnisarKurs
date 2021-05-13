@@ -30,7 +30,7 @@ namespace Barber.Code
         public static List<record> recordpush(int client_id)
         {
             List<record> records = new List<record>();
-            string strcon = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
             using (SqlConnection con = new SqlConnection(strcon))
             {
                 con.Open();
@@ -45,15 +45,15 @@ namespace Barber.Code
                     recor.id_client = data.GetInt32(2);
                     recor.id_branch = data.GetInt32(3);
                     recor.id_serv = data.GetInt32(4);
-                    recor.date = data.GetDateTime(5);
-                    recor.time = data.GetTimeSpan(6);
+                    recor.time = data.GetTimeSpan(5);
+                    recor.date = data.GetDateTime(6);
                     recor.name_serv = data.GetString(7);
-                    recor.serv_cost = data.GetString(8);
-                    recor.name_branch = data.GetString(9);
-                    recor.branch_addres = data.GetString(7);
-                    recor.name_empl = data.GetString(8);
-                    recor.surname_empl = data.GetString(9);
-                    recor.post_name = data.GetString(10);
+                    recor.serv_cost = data.GetDecimal(8).ToString();
+                   // recor.name_branch = data.GetString(9);
+                    recor.branch_addres = data.GetString(14) +" "+ data.GetString(10);
+                    recor.name_empl = data.GetString(12) +" " + data.GetString(11);
+                    //recor.surname_empl = data.GetString(12);
+                    recor.post_name = data.GetString(13);
                     records.Add(recor);
                 }
                 con.Close();

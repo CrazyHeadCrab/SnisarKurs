@@ -19,7 +19,7 @@ namespace Barber.Code
         {
             ObservableCollection<bookingtime> bookingtimes = new ObservableCollection<bookingtime>();
             string d = dates.Year.ToString() + "-" + dates.Month.ToString() + "-" + dates.Day.ToString();
-            string strcon = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
             using (SqlConnection con = new SqlConnection(strcon))
             {
                 con.Open();

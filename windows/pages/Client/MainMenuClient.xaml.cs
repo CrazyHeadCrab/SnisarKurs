@@ -45,7 +45,7 @@ namespace Barber.windows.pages
 
         private void Headername()
         {
-            string strcon = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
             using (SqlConnection sqlcon = new SqlConnection(strcon))
             {
                 sqlcon.Open();
