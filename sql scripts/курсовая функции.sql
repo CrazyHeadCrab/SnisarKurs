@@ -358,3 +358,92 @@ go
 
 
 						 select * from  all_client_record(1) 
+
+
+
+						 
+if exists (select * from sysobjects where name = 'update_client' and type='P')
+drop proc update_client
+go
+create proc update_client
+@id int,
+@name nvarchar(20),
+@sur_n nvarchar(20),
+@patr_n nvarchar(20),
+@email nvarchar(30),
+@phone nvarchar(12),
+@stat int output
+as
+begin try
+if not(@email like('%@%.%') or @email = 'null')
+begin
+	set @stat = 2
+	raiserror('email',16,1)
+end
+
+if  not(@phone like('+7[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]') or @phone = 'null')
+begin
+	set @stat = 3
+	raiserror('2',16,1)
+end
+
+declare @email2 nvarchar(30)
+declare @phone2 nvarchar(12)
+declare @patr_n2 nvarchar(20)
+
+if (@patr_n = 'null') 
+begin
+	set @patr_n2 = null
+end
+else
+begin 
+	set @patr_n2 = @patr_n
+end
+
+if (@email = 'null') 
+begin
+	set @email2 = null
+end
+else
+begin 
+	set @email2 = @email
+end
+
+if (@phone = 'null') 
+begin
+	set @phone2 = null
+end
+else
+begin 
+	set @phone2 = @phone
+end
+
+begin tran
+update client set
+cl_name = @name,
+cl_surname = @sur_n,
+cl_patronic = @patr_n2,
+cl_email = @email2,
+cl_phone = @phone2
+where client_id = @id
+commit
+set @stat = 1
+end try
+
+begin catch
+declare @errormas nvarchar(50)
+declare @errorsev int
+if  @@TRANCOUNT > 0 ROLLBACK
+select @errormas = ERROR_MESSAGE(), @errorsev = ERROR_SEVERITY()
+/*RAISERROR(@errormas, @errorsev, 1)*/
+
+end catch
+return @stat
+go
+
+
+go
+declare @x int
+exec dbo.update_client 1, 'јнна', 'ќсипова', 'ёрьевна', '123', 'null', @x output
+print @x
+go

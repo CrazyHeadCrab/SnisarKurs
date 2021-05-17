@@ -66,6 +66,7 @@
     </ApplicationDefinition>
     <Compile Include="Code\bookingtime.cs" />
     <Compile Include="Code\branch.cs" />
+    <Compile Include="Code\client.cs" />
     <Compile Include="Code\emplo.cs" />
     <Compile Include="Code\record.cs" />
     <Compile Include="Code\service.cs" />
