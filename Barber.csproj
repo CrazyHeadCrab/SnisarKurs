@@ -70,6 +70,9 @@
     <Compile Include="Code\emplo.cs" />
     <Compile Include="Code\record.cs" />
     <Compile Include="Code\service.cs" />
+    <Compile Include="stars.xaml.cs">
+      <DependentUpon>stars.xaml</DependentUpon>
+    </Compile>
     <Compile Include="windows\Mainmenu.xaml.cs">
       <DependentUpon>Mainmenu.xaml</DependentUpon>
     </Compile>
@@ -91,6 +94,13 @@
     <Compile Include="windows\pages\regist.xaml.cs">
       <DependentUpon>regist.xaml</DependentUpon>
     </Compile>
+    <Compile Include="windows\test.xaml.cs">
+      <DependentUpon>test.xaml</DependentUpon>
+    </Compile>
+    <Page Include="stars.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="windows\Mainmenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -132,6 +142,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="windows\styles\style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="windows\test.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

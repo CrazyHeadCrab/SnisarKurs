@@ -92,6 +92,10 @@
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Ваш Заказ" Style="{StaticResource txtHeader3}" Foreground="{StaticResource PrimaryHueLightBrush}"/>
                     <TextBlock x:Name="numpop" Style="{StaticResource txtnormal}"  Foreground="Black"  HorizontalAlignment="Left" TextWrapping="Wrap"/>
+                    <TextBox x:Name="review" MaxLines="40" MinLines="15" MaxLength="507"  Style="{StaticResource textboxsimpl}"  Margin="5" Text="Ваш отзыв"></TextBox>
+                    <StackPanel Orientation="Horizontal">
+                        
+                    </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Button x:Name="endpupexit" Content="Отмена" HorizontalAlignment="Left" Width="175" />
                         <Button x:Name="endpuptrue" Content="Подтвердить" HorizontalAlignment="Right" Width="175" />
@@ -134,6 +138,7 @@
                 </StackPanel>
 
                 <Button x:Name="SaveChangeBut" Content="Сохранить изменения"  Click="SaveChangeBut_Click" IsEnabled="False"/>
+                <TextBlock x:Name="errchangeblock" Style="{StaticResource txtnormal}"  Foreground="Red" TextAlignment="Center"/>
 
 
 

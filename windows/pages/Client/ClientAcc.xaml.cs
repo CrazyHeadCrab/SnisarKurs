@@ -71,8 +71,6 @@ namespace Barber.windows.pages.Client
 
         private void accbut_Click(object sender, RoutedEventArgs e)
         {
-            if (!accload)
-            {
                 client cli = client.client_inf(id);
                 loginBox.Text = cli.logn;
                 nameBox.Text = cli.name;
@@ -80,22 +78,17 @@ namespace Barber.windows.pages.Client
                 patroname.Text = cli.patronic;
                 emailBox.Text = cli.email;
                 phoneBox.Text = cli.phone;
-
-            }
             ActBorder.Visibility = Visibility.Hidden;
             hisBorder.Visibility = Visibility.Hidden;
             PrivateInfBorder.Visibility = Visibility.Visible;
             accbut.IsEnabled = false;
             servbut.IsEnabled = true;
+            errchangeblock.Text = "";
         }
 
         private void SaveChangeBut_Click(object sender, RoutedEventArgs e)
         {
-            if (cheak_client_change())
-            {
 
-            }
-            else
             {
                 string strconection = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
                 using (SqlConnection sqlConnection = new SqlConnection(strconection))
@@ -129,8 +122,15 @@ namespace Barber.windows.pages.Client
 
                     else
                     {
-                        string b = x.ToString();
-                        MessageBox.Show(b);
+                        if ((int)x == 2)
+                        {
+                            errchangeblock.Text = "Неправильный вид email";
+                        }
+                        else
+                        {
+                            errchangeblock.Text = "Неправильный вид телефона";
+                        }
+                        
                     }
                 }
             }
@@ -153,9 +153,6 @@ namespace Barber.windows.pages.Client
 
         }
 
-        private bool cheak_client_change()
-        {
-            return false;
-        }
+
     }
 }
