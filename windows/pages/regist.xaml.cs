@@ -39,7 +39,7 @@ namespace Barber.windows.pages
             }
             else
             {
-                string strconection = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
+                string strconection = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
                 using (SqlConnection sqlConnection = new SqlConnection(strconection))
                 {
                     sqlConnection.Open();

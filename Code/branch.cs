@@ -19,7 +19,7 @@ namespace Barber.Code
         public static List<branch> branchpush()
         {
             List<branch> branches = new List<branch>();
-            string strcon = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
             using (SqlConnection con = new SqlConnection(strcon))
             {
                 con.Open();

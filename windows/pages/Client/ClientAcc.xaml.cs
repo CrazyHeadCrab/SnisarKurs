@@ -30,7 +30,7 @@ namespace Barber.windows.pages.Client
         private List<record> recordsActual;
         private List<record> recordsHistory;
         private bool accload;
-        public ClientAcc(Frame frame,int Id)
+        public ClientAcc(Frame frame, int Id)
         {
             InitializeComponent();
             mainframe = frame;
@@ -39,7 +39,7 @@ namespace Barber.windows.pages.Client
             recordsActual = new List<record>();
             recordsHistory = new List<record>();
             records = record.recordpush(Id);
-            foreach(record x in records)
+            foreach (record x in records)
             {
                 //record rec = new record();
                 //rec = x;
@@ -67,17 +67,19 @@ namespace Barber.windows.pages.Client
             record rec = (record)listhisserv.Items[listhisserv.Items.IndexOf(((Button)sender).DataContext)];
             Reviewpop.IsOpen = true;
             numpop.Text = rec.id.ToString();
+            ordernumpop.Text = "Ваш Заказ #" + rec.id.ToString();
+            maingrid.IsEnabled = false;
         }
 
         private void accbut_Click(object sender, RoutedEventArgs e)
         {
-                client cli = client.client_inf(id);
-                loginBox.Text = cli.logn;
-                nameBox.Text = cli.name;
-                surnameBox.Text = cli.surname;
-                patroname.Text = cli.patronic;
-                emailBox.Text = cli.email;
-                phoneBox.Text = cli.phone;
+            client cli = client.client_inf(id);
+            loginBox.Text = cli.logn;
+            nameBox.Text = cli.name;
+            surnameBox.Text = cli.surname;
+            patroname.Text = cli.patronic;
+            emailBox.Text = cli.email;
+            phoneBox.Text = cli.phone;
             ActBorder.Visibility = Visibility.Hidden;
             hisBorder.Visibility = Visibility.Hidden;
             PrivateInfBorder.Visibility = Visibility.Visible;
@@ -90,7 +92,7 @@ namespace Barber.windows.pages.Client
         {
 
             {
-                string strconection = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
+                string strconection = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
                 using (SqlConnection sqlConnection = new SqlConnection(strconection))
                 {
                     sqlConnection.Open();
@@ -130,7 +132,7 @@ namespace Barber.windows.pages.Client
                         {
                             errchangeblock.Text = "Неправильный вид телефона";
                         }
-                        
+
                     }
                 }
             }
@@ -153,6 +155,33 @@ namespace Barber.windows.pages.Client
 
         }
 
+        private void endpuptrue_Click(object sender, RoutedEventArgs e)
+        {
+            string conect = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(conect))
+            {
+                connection.Open();
+                string command = "exec dbo.add_review @rew, @rec_id, @star";
+                SqlCommand sqlCommand = new SqlCommand(command, connection);
+                sqlCommand.Parameters.AddWithValue("@rew", review.Text);
+                sqlCommand.Parameters.AddWithValue("@rec_id", numpop.Text);
+                sqlCommand.Parameters.AddWithValue("@star", star.val);
+                if (sqlCommand.ExecuteNonQuery() == 1)
+                {
 
+                }
+                connection.Close();
+            }
+            review.Text = "";
+            Reviewpop.IsOpen = false;
+            maingrid.IsEnabled = true;
+        }
+
+        private void endpupexit_Click(object sender, RoutedEventArgs e)
+        {
+            review.Text = "";
+            Reviewpop.IsOpen = false;
+            maingrid.IsEnabled = true;
+        }
     }
 }

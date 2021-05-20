@@ -65,7 +65,7 @@ emp_patronic nvarchar(20) null,
 branch_id int not null,
 post_id int not null,
 log_pass_id int not null,
-count_stars int not null check (count_stars >= 1 and count_stars <=5) DEFAULT 4,
+count_stars float not null check (count_stars >= 1 and count_stars <=5) DEFAULT 4,
 
 primary key (employer_id),
 foreign key (branch_id) references branch(branch_id),
@@ -123,9 +123,9 @@ primary key (val)
 )
 create table review
 (
-review_id int not null ,
+review_id int not null  identity(1,1),
 record_id int not null ,
-count_stars int not null check (count_stars >= 1 and count_stars <=5),
+count_stars float not null check (count_stars >= 1 and count_stars <=5),
 review nvarchar(500) null,
 primary key(review_id),
 foreign key (record_id) references record(record_id)

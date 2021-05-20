@@ -4,12 +4,12 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      xmlns:local="clr-namespace:Barber.windows.pages.Client"
+      xmlns:local="clr-namespace:Barber"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ClientAcc">
 
-    <Grid>
+    <Grid x:Name="maingrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.3*"/>
             <ColumnDefinition/>
@@ -90,15 +90,16 @@
         <Popup x:Name="Reviewpop" Placement="Center" StaysOpen="True"  Height="500" Width="500" Focusable="True" IsOpen="False">
             <Border  BorderThickness="3" Background="White" BorderBrush="{StaticResource PrimaryHueDarkBrush}" >
                 <StackPanel Orientation="Vertical">
-                    <TextBlock Text="Ваш Заказ" Style="{StaticResource txtHeader3}" Foreground="{StaticResource PrimaryHueLightBrush}"/>
-                    <TextBlock x:Name="numpop" Style="{StaticResource txtnormal}"  Foreground="Black"  HorizontalAlignment="Left" TextWrapping="Wrap"/>
-                    <TextBox x:Name="review" MaxLines="40" MinLines="15" MaxLength="507"  Style="{StaticResource textboxsimpl}"  Margin="5" Text="Ваш отзыв"></TextBox>
+                    <TextBlock x:Name="ordernumpop" Text="Ваш Заказ" Style="{StaticResource txtHeader3}" Foreground="{StaticResource PrimaryHueLightBrush}"/>
+                    <TextBlock x:Name="numpop" Style="{StaticResource txtnormal}"  Foreground="Black"  HorizontalAlignment="Left" TextWrapping="Wrap"  Visibility="Hidden"/>
+                    <TextBox x:Name="review" MaxLines="40" MinLines="15" MaxLength="500"  Style="{StaticResource textboxsimpl}"  Margin="5"  TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ваш отзыв" ></TextBox>
                     <StackPanel Orientation="Horizontal">
                         
                     </StackPanel>
+                    <local:stars Height="69" x:Name="star" Margin="5" ></local:stars>
                     <StackPanel Orientation="Horizontal">
-                        <Button x:Name="endpupexit" Content="Отмена" HorizontalAlignment="Left" Width="175" />
-                        <Button x:Name="endpuptrue" Content="Подтвердить" HorizontalAlignment="Right" Width="175" />
+                        <Button x:Name="endpupexit" Content="Отмена" HorizontalAlignment="Left" Width="250" Click="endpupexit_Click"  />
+                        <Button x:Name="endpuptrue" Content="Подтвердить" HorizontalAlignment="Right" Width="250" Click="endpuptrue_Click" />
                     </StackPanel>
                 </StackPanel>
             </Border>

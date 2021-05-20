@@ -72,3 +72,8 @@ C:\Users\user\source\repos\Barber\obj\Debug\windows\pages\Client\ServationClient
 C:\Users\user\source\repos\Barber\obj\Debug\windows\pages\Client\ClientAcc.baml
 C:\Users\user\source\repos\Barber\obj\Debug\windows\pages\Client\ServationClient.baml
 C:\Users\user\source\repos\Barber\obj\Debug\windows\pages\Client\ServationClientPartTwo.baml
+C:\Users\user\source\repos\Barber\obj\Debug\stars.g.cs
+C:\Users\user\source\repos\Barber\obj\Debug\windows\test.g.cs
+C:\Users\user\source\repos\Barber\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\user\source\repos\Barber\obj\Debug\stars.baml
+C:\Users\user\source\repos\Barber\obj\Debug\windows\test.baml

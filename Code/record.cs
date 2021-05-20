@@ -30,7 +30,7 @@ namespace Barber.Code
         public static List<record> recordpush(int client_id)
         {
             List<record> records = new List<record>();
-            string strcon = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
             using (SqlConnection con = new SqlConnection(strcon))
             {
                 con.Open();

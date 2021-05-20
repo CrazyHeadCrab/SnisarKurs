@@ -24,7 +24,7 @@ namespace Barber.Code
         public static client client_inf(int client_id)
         {
             client clie = new client();
-            string strcon = ConfigurationManager.ConnectionStrings["defcon2"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
             using (SqlConnection con = new SqlConnection(strcon))
             {
                 con.Open();

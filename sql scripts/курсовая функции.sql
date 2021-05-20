@@ -447,3 +447,33 @@ declare @x int
 exec dbo.update_client 1, 'јнна', 'ќсипова', 'ёрьевна', '123', 'null', @x output
 print @x
 go
+
+
+
+
+if exists (select * from sysobjects where name = 'add_review' and type='P')
+drop proc add_review
+go
+create proc add_review
+@review nvarchar(500),
+@rec_id int,
+@stars int
+as
+begin try
+begin tran
+insert into review
+	values (@rec_id, @stars, @review)
+commit
+
+end try
+
+begin catch
+declare @errormas nvarchar(50)
+declare @errorsev int
+if  @@TRANCOUNT > 0 ROLLBACK
+select @errormas = ERROR_MESSAGE(), @errorsev = ERROR_SEVERITY()
+RAISERROR(@errormas, @errorsev, 1)
+end catch
+go
+
+
